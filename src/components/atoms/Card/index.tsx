@@ -1,5 +1,6 @@
 import { Box, Pressable } from "native-base";
 import React from "react";
+
 import { CardProps } from "./types";
 
 const Card = ({

@@ -3,7 +3,7 @@ import jwtDecode from "jwt-decode";
 
 import { useAuthContext } from "../../context";
 import useApi from "../../service/api";
-import { saveInStore } from "../../utils/secureStore";
+import { saveInStore } from "../../utils";
 import { IUser, LoginPayload } from "./types";
 
 const useLogin = () => {

@@ -1,7 +1,9 @@
 export interface ConfirmModalProps {
-  onCancel?: () => void;
-  onConfirm: () => void;
-  text: string;
-  okButtonText?: string;
-  cancelButtonText?: string;
+  title: string;
+  content: string;
+  icon?: React.ReactNode;
+  onOk: () => void;
+  onCancel: () => void;
+  isOpen: boolean;
+  onClose: () => void;
 }

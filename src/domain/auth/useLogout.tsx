@@ -2,7 +2,7 @@ import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
 
 import { useAuthContext } from "../../context";
-import { removeValue } from "../../utils/secureStore";
+import { removeValue } from "../../utils";
 
 const useLogout = () => {
   const { authState, setAuthState } = useAuthContext();

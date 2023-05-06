@@ -1,7 +1,7 @@
 import axios, { AxiosRequestConfig } from "axios";
 
 import { useAuthContext } from "../context";
-import { saveInStore } from "../utils/secureStore";
+import { saveInStore } from "../utils";
 import useLogout from "../domain/auth/useLogout";
 
 const useApi = () => {

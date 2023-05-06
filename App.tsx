@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import { NavigationContainer, useTheme } from "@react-navigation/native";
 import { useFonts } from "expo-font";
@@ -9,7 +9,7 @@ import { Feather, FontAwesome5, Ionicons } from "@expo/vector-icons";
 import { Center, Icon, NativeBaseProvider, Spinner, Text } from "native-base";
 
 import { AuthContext, DEFAULT_AUTH_VALUES } from "./src/context";
-import { getValueInStore } from "./src/utils/secureStore";
+import { getValueInStore } from "./src/utils";
 import Home from "./src/pages/Home";
 import Login from "./src/pages/Login";
 import Profile from "./src/pages/Profile";

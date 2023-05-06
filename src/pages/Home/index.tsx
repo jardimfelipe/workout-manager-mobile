@@ -8,12 +8,10 @@ import {
   Center,
   Spinner,
   HStack,
-  Pressable,
 } from "native-base";
 
 import { Card } from "../../components";
 import useWorkoutQuery from "../../domain/workouts/useWorkoutQuery";
-import { TouchableHighlight, TouchableOpacity, View } from "react-native";
 import { IWorkout } from "../../domain/workouts/types";
 import { SafeAreaView } from "react-native-safe-area-context";
 

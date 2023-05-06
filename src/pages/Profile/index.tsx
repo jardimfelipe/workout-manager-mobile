@@ -7,20 +7,17 @@ import {
   Heading,
   Icon,
   VStack,
-  Text,
-  HStack,
   Input,
   FormControl,
   ScrollView,
 } from "native-base";
+import { useForm } from "react-hook-form";
 import { FontAwesome } from "@expo/vector-icons";
 
 import useLogout from "../../domain/auth/useLogout";
-import { SafeAreaView } from "react-native-safe-area-context";
 import { useAuthContext } from "../../context";
 import { Card } from "../../components";
 import { BodyMeaseurements } from "../../domain/auth/types";
-import { Controller, useForm } from "react-hook-form";
 
 const Profile = () => {
   const { authState } = useAuthContext();
@@ -32,7 +29,7 @@ const Profile = () => {
       password: "",
     },
   });
-  console.log(authState.user);
+
   return (
     <ScrollView>
       <Box safeArea={4}>
