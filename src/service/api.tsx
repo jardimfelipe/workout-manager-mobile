@@ -8,7 +8,7 @@ const useApi = () => {
   const logout = useLogout();
   const { authState, setAuthState } = useAuthContext();
   const api = axios.create({
-    baseURL: "https://1c3e-2804-1b3-a643-9b2e-d3b4-9235-54c6-f13.sa.ngrok.io",
+    baseURL: "https://workout-manager.herokuapp.com/",
   });
 
   const validateToken = async (refreshToken: string) => {

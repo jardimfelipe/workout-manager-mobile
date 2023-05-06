@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 
 import { NavigationContainer, useTheme } from "@react-navigation/native";
+import { useFonts } from "expo-font";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
@@ -15,6 +16,8 @@ import Profile from "./src/pages/Profile";
 import WorkoutExercises from "./src/pages/WorkoutExercises";
 import jwtDecode from "jwt-decode";
 import { HeaderButton } from "./src/components/";
+import theme from "./theme";
+import Frequency from "./src/pages/Frequency";
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -25,6 +28,7 @@ const queryClient = new QueryClient({
 
 export default function App() {
   const [authState, setAuthState] = useState(DEFAULT_AUTH_VALUES.authState);
+
   useEffect(() => {
     (async () => {
       setAuthState({
@@ -43,9 +47,10 @@ export default function App() {
       });
     })();
   }, []);
+
   return (
     <AuthContext.Provider value={{ authState, setAuthState }}>
-      <NativeBaseProvider>
+      <NativeBaseProvider theme={theme}>
         <QueryClientProvider client={queryClient}>
           <NavigationContainer>
             {authState.isTokenLoading ? (
@@ -119,7 +124,7 @@ const Tabs = () => {
         component={HomeStackScreen}
         options={{
           tabBarLabel: ({ focused }) => (
-            <Text bold={focused} color={focused ? "red.600" : "black"}>
+            <Text bold={focused} color={focused ? "primary.600" : "black"}>
               Meus Treinos
             </Text>
           ),
@@ -127,7 +132,7 @@ const Tabs = () => {
             <Icon
               as={Ionicons}
               name="newspaper-outline"
-              color={focused ? "red.600" : "black"}
+              color={focused ? "primary.600" : "black"}
             />
           ),
           headerShown: false,
@@ -137,7 +142,26 @@ const Tabs = () => {
         options={{
           headerShown: false,
           tabBarLabel: ({ focused }) => (
-            <Text bold={focused} color={focused ? "red.600" : "black"}>
+            <Text bold={focused} color={focused ? "primary.600" : "black"}>
+              Frequência
+            </Text>
+          ),
+          tabBarIcon: ({ focused }) => (
+            <Icon
+              as={Feather}
+              name="calendar"
+              color={focused ? "primary.600" : "black"}
+            />
+          ),
+        }}
+        name="Frequência"
+        component={Frequency}
+      />
+      <Tab.Screen
+        options={{
+          headerShown: false,
+          tabBarLabel: ({ focused }) => (
+            <Text bold={focused} color={focused ? "primary.600" : "black"}>
               Meu Perfil
             </Text>
           ),
@@ -145,7 +169,7 @@ const Tabs = () => {
             <Icon
               as={Feather}
               name="user"
-              color={focused ? "red.600" : "black"}
+              color={focused ? "primary.600" : "black"}
             />
           ),
         }}

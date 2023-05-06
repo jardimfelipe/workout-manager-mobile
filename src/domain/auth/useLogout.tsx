@@ -8,10 +8,9 @@ const useLogout = () => {
   const { authState, setAuthState } = useAuthContext();
   return useMutation(
     () =>
-      axios.post(
-        "https://1c3e-2804-1b3-a643-9b2e-d3b4-9235-54c6-f13.sa.ngrok.io/auth/logout",
-        { id: authState.user._id }
-      ),
+      axios.post("https://workout-manager.herokuapp.com/auth/logout", {
+        id: authState.user._id,
+      }),
     {
       onSuccess: async () => {
         await removeValue("accessToken");

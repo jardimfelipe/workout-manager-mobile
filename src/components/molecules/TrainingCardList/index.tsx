@@ -31,7 +31,7 @@ const TraningCardList = ({ exercises }: Props) => {
             <Card disabledPress rounded="none" roundedTop="lg" p="5" shadow="0">
               <Center>
                 <HStack space="xl">
-                  <Text fontSize="lg" bold>
+                  <Text color="black" fontSize="lg" bold>
                     {item.exercise}
                   </Text>
                   <Text fontSize="lg" bold>
@@ -46,7 +46,7 @@ const TraningCardList = ({ exercises }: Props) => {
               rounded="none"
               roundedBottom="lg"
               p="5"
-              bg="red.700"
+              bg="primary.700"
               shadow="0"
             >
               <Center>
@@ -54,7 +54,7 @@ const TraningCardList = ({ exercises }: Props) => {
                   <Text fontSize="xl" color="white">
                     {item.series.split("x")[0]} séries
                   </Text>
-                  <Divider orientation="vertical" />
+                  <Divider color="amber.200" orientation="vertical" />
                   <Text fontSize="xl" color="white">
                     {item.series.split("x")[1]} reps
                   </Text>

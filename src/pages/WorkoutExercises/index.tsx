@@ -35,7 +35,7 @@ const WorkoutExercises = ({ navigation, route }) => {
     return (
       <Box flexDirection="row">
         {props.navigationState.routes.map((route, i) => {
-          const borderColor = index === i ? "red.700" : "transparent";
+          const borderColor = index === i ? "primary.700" : "transparent";
           return (
             <Box
               borderBottomWidth="3"

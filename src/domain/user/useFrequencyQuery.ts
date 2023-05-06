@@ -3,19 +3,18 @@ import { AxiosResponse } from "axios";
 import { useToast } from "native-base";
 
 import useApi from "../../service/api";
-import { IWorkout, WorkoutQueryKeys } from "./types";
+import { FrequencyQueryKeys } from "./types";
 
 const useWorkoutQuery = () => {
   const toast = useToast();
   const api = useApi();
   return useQuery(
-    [WorkoutQueryKeys.WORKOUTS],
+    [FrequencyQueryKeys.FREQUENCIES],
     async () => {
-      const response: AxiosResponse<IWorkout[]> = await api.get(
+      const response: AxiosResponse<Date[]> = await api.get(
         "/workouts/student"
       );
-      const { data } = response;
-      return data.sort((a, b) => (a.isActive < b.isActive ? 1 : -1));
+      return response.data;
     },
     {
       onError: (error: any) => {

@@ -39,8 +39,8 @@ const Home = ({ navigation }) => {
             {data?.map((workout) => (
               <Card
                 onPress={() => handleCardPress(workout)}
-                bg={workout.isActive ? "red.600" : "white"}
-                pressedBg={workout.isActive ? "red.700" : "gray.100"}
+                bg={workout.isActive ? "primary.600" : "white"}
+                pressedBg={workout.isActive ? "primary.700" : "gray.100"}
                 key={workout._id}
                 py="5"
                 px="8"

@@ -116,7 +116,7 @@ const Login = () => {
               isDisabled={!formState.isValid}
               onPress={handleSubmit(onSubmit)}
               mt="2"
-              colorScheme="red"
+              color="primary.500"
             >
               Entrar
             </Button>

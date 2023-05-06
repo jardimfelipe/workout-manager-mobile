@@ -19,3 +19,7 @@ export interface IWorkout {
   isActive: boolean;
   createdBy: IUser;
 }
+
+export enum WorkoutQueryKeys {
+  WORKOUTS = "workouts",
+}
