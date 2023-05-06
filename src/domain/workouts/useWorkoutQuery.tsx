@@ -2,8 +2,8 @@ import { useQuery } from "@tanstack/react-query";
 import { AxiosResponse } from "axios";
 import { useToast } from "native-base";
 
-import useApi from "../../service/api";
 import { IWorkout, WorkoutQueryKeys } from "./types";
+import useApi from "../../service/api";
 
 const useWorkoutQuery = () => {
   const toast = useToast();

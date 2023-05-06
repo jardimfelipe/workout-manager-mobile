@@ -7,7 +7,7 @@ import {
   SceneRendererProps,
   TabView,
 } from "react-native-tab-view";
-import { Pressable, useWindowDimensions } from "react-native";
+import { Pressable, ScrollView, useWindowDimensions } from "react-native";
 
 import { IWorkout } from "../../domain/workouts/types";
 import { TraningCardList } from "../../components";
@@ -34,28 +34,30 @@ const WorkoutExercises = ({ navigation, route }) => {
   ) => {
     return (
       <Box flexDirection="row">
-        {props.navigationState.routes.map((route, i) => {
-          const borderColor = index === i ? "primary.700" : "transparent";
-          return (
-            <Box
-              borderBottomWidth="3"
-              borderColor={borderColor}
-              flex={1}
-              alignItems="center"
-              p="4"
-              bg="white"
-              key={`tab-${i}`}
-            >
-              <Pressable
-                onPress={() => {
-                  setIndex(i);
-                }}
+        <ScrollView horizontal>
+          {props.navigationState.routes.map((route, i) => {
+            const borderColor = index === i ? "primary.700" : "transparent";
+            return (
+              <Box
+                borderBottomWidth="3"
+                borderColor={borderColor}
+                flex={1}
+                alignItems="center"
+                p="4"
+                bg="white"
+                key={`tab-${i}`}
               >
-                <Text bold={index === i}>{route.title}</Text>
-              </Pressable>
-            </Box>
-          );
-        })}
+                <Pressable
+                  onPress={() => {
+                    setIndex(i);
+                  }}
+                >
+                  <Text bold={index === i}>{route.title}</Text>
+                </Pressable>
+              </Box>
+            );
+          })}
+        </ScrollView>
       </Box>
     );
   };

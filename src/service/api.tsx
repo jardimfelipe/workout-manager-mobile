@@ -1,8 +1,8 @@
 import axios, { AxiosRequestConfig } from "axios";
 
 import { useAuthContext } from "../context";
-import useLogout from "../domain/auth/useLogout";
 import { saveInStore } from "../utils/secureStore";
+import useLogout from "../domain/auth/useLogout";
 
 const useApi = () => {
   const logout = useLogout();
@@ -34,7 +34,7 @@ const useApi = () => {
     }
   };
 
-  api.interceptors.request.use((config: AxiosRequestConfig<any>) => {
+  api.interceptors.request.use((config) => {
     if (authState.isLoggedIn) {
       config.headers.Authorization = `Bearer ${authState.accessToken}`;
     }
